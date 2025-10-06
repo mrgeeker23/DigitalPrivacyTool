@@ -1,0 +1,157 @@
+[2025-06-19 02:18:14] Copied: cd "C:\Users\Lenovo\Desktop\DigitalPrivacyTOOOL"
+python clipboard_checker.py
+
+AI Response: Not Sensitive. The given text only contains the path to a folder on a Windows system (C:\Users\Lenovo\Desktop\DigitalPrivacyTOOOL), and no sensitive information such as passwords, phone numbers, emails, keys, IDs, or financial info is present. However, it's essential to remember that even non-sensitive data can be useful in a broader context for threat actors to launch attacks. Always take caution when handling any kind of data on your system and regularly update your security measures.
+----------------------------------------
+[2025-06-19 02:18:25] Copied: https://platform.openai.com/docs/guides/error-codes/api-errors
+AI Response: Not Sensitive. The given text does not appear to contain any sensitive personal data such as passwords, phone numbers, emails, keys, IDs, or financial information. It seems to be a URL for documentation related to API errors from the OpenAI platform.
+----------------------------------------
+[2025-06-19 02:18:53] Copied: 3434343434343434343
+AI Response: Not Sensitive. The provided text appears to be a sequence of numeric digits, which does not inherently represent sensitive information like a password, phone number, email, key, ID, or financial info. However, it is important to note that sequences of numbers can potentially be parts of such sensitive data, but without additional context, the provided text is not sensitive.
+----------------------------------------
+[2025-06-19 02:21:09] Copied: | Card Type  | Number                | Use              |
+| ---------- | --------------------- | ---------------- |
+| Visa       | `4242 4242 4242 4242` | Most common      |
+| MasterCard | `5555 5555 5555 4444` | MasterCard test  |
+| Amex       | `3782 822463 10005`   | American Express |
+| Discover   | `6011 1111 1111 1117` | Discover Card    |
+
+AI Response: Local Detection: Found Card
+----------------------------------------
+[2025-06-19 02:21:58] Copied: ----- | --------------------- | ---------------- |
+|      | `4242 4242 4242 4242` |  |
+ | `5555 5555 5555 4444` |
+     | `3782 822463 10005`   |
+|    | `6011 1111 1111 1117` 
+AI Response: Local Detection: Found Card
+----------------------------------------
+[2025-06-19 02:39:16] Copied: https://x.com/yeeeeezos/status/1920345978286329864?s=19
+AI Response: Not Sensitive. The provided text appears to be a Twitter post URL with no personal sensitive information visible. However, clicking the link should be done with caution, as it could potentially lead to phishing attempts. Always verify links before opening them, especially if they are from an unknown source.
+----------------------------------------
+[2025-06-19 02:40:14] Copied: import re
+from collections import Counter
+
+def analyze_logs(filename="clipboard_log.txt"):
+    try:
+        with open(filename, "r", encoding="utf-8") as file:
+            data = file.read()
+
+        copied_items = re.findall(r"Copied: (.+)", data)
+        ai_responses = re.findall(r"AI Response: (.+)", data)
+        timestamps = re.findall(r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\]", data)
+
+        print("\n📊 CLIPBOARD LOG ANALYSIS REPORT 📊")
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+        print(f"🔢 Total Entries: {len(copied_items)}")
+
+        sens_count = sum(1 for r in ai_responses if "Sensitive" in r)
+        not_sens_count = len(ai_responses) - sens_count
+        print(f"🛡️  Sensitive: {sens_count}")
+        print(f"✅ Not Sensitive: {not_sens_count}")
+
+        # Local pattern counts
+        patterns = {
+            "Email": r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}",
+            "Phone": r"\b\d{10}\b",
+            "PAN": r"\b[A-Z]{5}[0-9]{4}[A-Z]\b",
+            "Card": r"\b(?:\d[ -]*?){13,16}\b"
+        }
+
+        local_counts = Counter()
+        for item in copied_items:
+            for label, pattern in patterns.items():
+                if re.search(pattern, item):
+                    local_counts[label] += 1
+
+        print("\n🔍 Local Pattern Detections:")
+        for label, count in local_counts.items():
+            print(f"   - {label}: {count}")
+
+        if copied_items:
+            print("\n🕒 Most Recent Entry:")
+            print(f"📋 Copied: {copied_items[-1]}")
+            print(f"📅 Time: {timestamps[-1]}")
+            print(f"🤖 AI Response: {ai_responses[-1]}")
+
+        print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+
+    except FileNotFoundError:
+        print("[❌] Log file not found!")
+    except Exception as e:
+        print(f"[⚠️] Error during analysis: {e}")
+
+if __name__ == "__main__":
+    analyze_logs()
+
+AI Response: The script provided doesn't directly determine sensitivity based on the code snippet given. However, it does use regular expressions to find strings that match the patterns for email addresses, phone numbers, PAN (4-digit A followed by 4 digits, an uppercase A, and then 4 more digits), and card numbers (13 to 16 digits). If any of these patterns are found in the "copied_items" list, they will be counted as sensitive data.
+
+The script counts the number of occurrences of "Sensitive" in the AI responses and assumes that any instance where "Sensitive" is not present indicates non-sensitive data. However, this assumption may not always hold true, depending on how the application handles sensitive information.
+
+Based on the provided code, it can be used to analyze clipboard logs for sensitive data but doesn't provide a definitive answer about whether the contents are sensitive or not without additional context. Therefore, I would say: "Potentially Sensitive." To ensure the safety of sensitive data, it is crucial to implement additional security measures and manually review any potential sensitive items found in the clipboard logs.
+----------------------------------------
+[2025-06-19 02:40:30] Copied: analyze_logs.py
+AI Response: Not Sensitive. The provided text appears to be the name of a Python script for analyzing system logs, which is not typically sensitive information. However, it's important to note that the actual content contained within the "analyze_logs.py" file could potentially contain sensitive data if improperly handled or shared. Always ensure good security practices when working with scripts and files that have access to sensitive information.
+----------------------------------------
+[2025-06-19 03:02:49] Copied: python clipboard_checker.py
+
+AI Response: Not Sensitive. The provided text is a command to run a Python script named "clipboard_checker.py" which does not contain sensitive information such as passwords, phone numbers, emails, keys, IDs, or financial info. It's just a command for executing a script and doesn't inherently pose a security risk on its own. However, the content of the "clipboard_checker.py" script could potentially contain sensitive information depending on how it has been coded.
+----------------------------------------
+[2025-06-19 03:03:14] Copied: random@email.com
+AI Response: Local Detection: Found Email
+----------------------------------------
+[2025-06-19 03:03:29] Copied: 9876543210
+
+
+AI Response: Local Detection: Found Phone
+----------------------------------------
+[2025-06-19 03:04:15] Copied: example123@gmail.com
+
+AI Response: Local Detection: Found Email
+----------------------------------------
+[2025-06-19 03:04:30] Copied: 9876543210
+
+AI Response: Local Detection: Found Phone
+----------------------------------------
+[2025-06-19 03:04:40] Copied: 4111 1111 1111 1111
+
+AI Response: Local Detection: Found Card
+----------------------------------------
+[2025-06-19 03:04:49] Copied: ABCDE1234F
+
+AI Response: Local Detection: Found PAN
+----------------------------------------
+[2025-06-19 03:05:11] Copied: Meeting at 4PM today.
+
+AI Response: Not Sensitive. The provided clipboard text only states a meeting time, which does not contain any sensitive information such as passwords, phone numbers, emails, keys, IDs, or financial data.
+----------------------------------------
+[2025-06-19 03:07:48] Copied: cd "C:\Users\Lenovo\Desktop\DigitalPrivacyTOOOL"
+
+AI Response: Not Sensitive. This text appears to be a directory path for a computer system, specifically a Windows system, and does not contain sensitive information such as passwords, phone numbers, emails, keys, IDs, or financial info. However, the location of this file on someone's desktop could potentially reveal information about their activities. It is always good practice to store sensitive files securely to prevent unauthorized access.
+----------------------------------------
+[2025-06-19 03:07:58] Copied: python analyze_logs.py
+
+AI Response: Not Sensitive. The given text is a simple command for running a Python script named "analyze_logs.py". It does not contain any sensitive information like passwords, phone numbers, emails, keys, IDs, or financial info.
+----------------------------------------
+[2025-06-24 08:14:30] Copied: python clipboard_checker.py
+
+AI Response: Not Sensitive. The provided clipboard text appears to be a command for running a Python script named "clipboard_checker.py", which itself doesn't contain any sensitive information like passwords, phone numbers, emails, keys, IDs, or financial info. However, it is always good practice to ensure that sensitive data isn't accidentally exposed in such ways, even if it seems unlikely in this case.
+----------------------------------------
+[2025-06-24 08:14:31] Copied: contact.harisfirdous@gmail.com
+AI Response: Local Detection: Found Email
+----------------------------------------
+[2025-06-24 08:16:35] Copied: 99885488782
+AI Response: Not Sensitive. The provided text does not seem to be associated with typical sensitive information like passwords, phone numbers, emails, keys, IDs, or financial data. It is a series of numbers that could potentially represent various things (e.g., a serial number, product code), but without further context, it cannot be conclusively determined as sensitive.
+----------------------------------------
+[2025-06-24 08:16:36] Copied: 9988548878
+AI Response: Local Detection: Found Phone
+----------------------------------------
+[2025-06-29 12:20:30] Copied: python clipboard_checker.py
+
+AI Response: Not Sensitive. The provided text appears to be a command for running a Python script named "clipboard_checker.py", which itself does not contain sensitive information such as passwords, phone numbers, emails, keys, IDs, financial info, etc. However, it's important to note that the actual function of this script may or may not involve handling sensitive data. It's always good practice to ensure you understand what scripts are doing before running them, especially if they have access to your system's clipboard.
+----------------------------------------
+[2025-06-29 12:20:40] Copied: contact.harisfirdous@gmail.com
+AI Response: Local Detection: Found Email
+----------------------------------------
+[2025-06-29 12:22:55] Copied: 999865632
+AI Response: Not Sensitive. It appears to be a series of numbers which, without additional context, cannot be definitively identified as sensitive information like a password, phone number, email, key, ID, or financial info. However, it's always important to handle such sequences with care to prevent unauthorized access or misuse.
+----------------------------------------
